@@ -8,8 +8,8 @@ void solve() {
     int n; cin >> n; 
     vector<int>a(n); 
     for(int i = 0; i < n; i++) cin >> a[i]; 
-    //int i = 0, j = 0; 
     int x = 0, y = 0; 
+
     bool ok = false; 
     for(int i = 0; i < n && !ok; i++){
         for(int j = i + 1; j < n; j++){
@@ -21,13 +21,9 @@ void solve() {
             }
         }
     }
-
-    if(ok){
-        cout << x << ' ' << y << endl; 
-    }
-    else{
-        cout << -1 << endl; 
-    }
+    
+    if(ok) cout << x << ' ' << y << endl;
+    else cout << -1 << endl; 
 }
 
 int32_t main() {

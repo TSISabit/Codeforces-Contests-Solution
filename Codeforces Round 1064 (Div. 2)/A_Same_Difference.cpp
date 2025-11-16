@@ -5,16 +5,11 @@ using namespace std;
 #define no cout << "NO" << endl;
 
 void solve() {
-    int n; 
-    cin >> n; 
-    vector<int>a(n); 
-    for(int i = 0; i < n; i++) cin >> a[i]; 
-    int x; 
-    cin >> x; 
-    int mx = *max_element(a.begin(), a.end()); 
-    int mn = *min_element(a.begin(), a.end());  
-    
-    if(x < mn || x > mx) no else yes
+    int n; cin >> n; 
+    string s; cin >> s;
+    int ans = count(s.begin(), s.end(), s[n - 1]); 
+
+    cout << n - ans << endl; 
 }
 
 int32_t main() {

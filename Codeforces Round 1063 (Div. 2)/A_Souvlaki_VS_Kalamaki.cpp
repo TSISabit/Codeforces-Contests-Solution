@@ -5,16 +5,21 @@ using namespace std;
 #define no cout << "NO" << endl;
 
 void solve() {
-    int n; 
-    cin >> n; 
-    vector<int>a(n); 
-    for(int i = 0; i < n; i++) cin >> a[i]; 
-    int x; 
-    cin >> x; 
-    int mx = *max_element(a.begin(), a.end()); 
-    int mn = *min_element(a.begin(), a.end());  
-    
-    if(x < mn || x > mx) no else yes
+    int n; cin >> n; 
+    vector<int>a(n + 1); 
+    //unordered_map<int, int>freq; 
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];  
+    } 
+    sort(a.begin(), a.end()); 
+    for(int i = 2; i < n; i+=2){
+        if(a[i] != a[i + 1]){
+            no 
+            return; 
+        }
+    }
+
+    yes 
 }
 
 int32_t main() {
