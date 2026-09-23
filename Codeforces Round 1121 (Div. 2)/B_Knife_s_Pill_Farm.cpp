@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long int
+#define yes cout << "YES" << endl;
+#define no cout << "NO" << endl;
+#define nn "\n" 
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define read(x) int x; cin >> x;
+#define readv(v, n) vector<int> v(n); for (auto &i : v) cin >> i;
+#define sz(x) (int)(x).size()
+#define gcd(a, b) __gcd(a, b)
+#define lcm(a, b) ((a) / gcd(a, b) * (b))
+#define vi vector<int>
+
+void solve() {
+    read(n); read(m); 
+    readv(a, n); 
+
+    priority_queue<int> pq; 
+    int sum = 0, mx = LLONG_MIN; 
+
+    for(int i = 0; i < n; i++){
+        if(sz(pq) == m - 1){
+            int scr = m * a[i] - sum; 
+            mx = max(mx, scr); 
+        }
+
+        pq.push(a[i]); 
+        sum += a[i]; 
+
+        if(sz(pq) > m - 1){
+            sum -= pq.top(); 
+            pq.pop(); 
+        }
+    }
+
+    cout << mx << nn; 
+}
+
+int32_t main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    int t; cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
